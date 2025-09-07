@@ -1,6 +1,5 @@
 // storage-adapter-import-placeholder
 import { postgresAdapter } from "@payloadcms/db-postgres";
-import { Pool } from "@neondatabase/serverless";
 import { payloadCloudPlugin } from "@payloadcms/payload-cloud";
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import path from "path";
@@ -31,9 +30,9 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
-    components: {
-      beforeNavLinks: ["@/components/stripe-verify#StripeVerify"],
-    },
+    // components: {
+    //   beforeNavLinks: ["@/components/stripe-verify#StripeVerify"],
+    // },
   },
   collections: [
     Users,
@@ -55,6 +54,7 @@ export default buildConfig({
       connectionString: process.env.DATABASE_URL || "",
     },
     migrationDir: path.resolve(dirname, "migrations"),
+    schemaName: "payload",
   }),
   sharp,
   plugins: [

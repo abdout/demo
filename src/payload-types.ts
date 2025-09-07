@@ -98,7 +98,7 @@ export interface Config {
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
   };
   db: {
-    defaultIDType: string;
+    defaultIDType: number;
   };
   globals: {};
   globalsSelect: {};
@@ -134,12 +134,12 @@ export interface UserAuthOperations {
  * via the `definition` "users".
  */
 export interface User {
-  id: string;
+  id: number;
   username: string;
   roles?: ('super-admin' | 'user')[] | null;
   tenants?:
     | {
-        tenant: string | Tenant;
+        tenant: number | Tenant;
         id?: string | null;
       }[]
     | null;
@@ -159,7 +159,7 @@ export interface User {
  * via the `definition` "tenants".
  */
 export interface Tenant {
-  id: string;
+  id: number;
   /**
    * This is the name of the store (e.g. Hien's Store)
    */
@@ -168,7 +168,7 @@ export interface Tenant {
    * This is the subdomain for the store (e.g. [slug].funroad.com)
    */
   slug: string;
-  image?: (string | null) | Media;
+  image?: (number | null) | Media;
   /**
    * Stripe Account ID associated with your bookstore
    */
@@ -185,8 +185,8 @@ export interface Tenant {
  * via the `definition` "media".
  */
 export interface Media {
-  id: string;
-  tenant?: (string | null) | Tenant;
+  id: number;
+  tenant?: (number | null) | Tenant;
   alt: string;
   updatedAt: string;
   createdAt: string;
@@ -205,13 +205,13 @@ export interface Media {
  * via the `definition` "categories".
  */
 export interface Category {
-  id: string;
+  id: number;
   name: string;
   slug: string;
   color?: string | null;
-  parent?: (string | null) | Category;
+  parent?: (number | null) | Category;
   subcategories?: {
-    docs?: (string | Category)[];
+    docs?: (number | Category)[];
     hasNextPage?: boolean;
     totalDocs?: number;
   };
@@ -225,8 +225,8 @@ export interface Category {
  * via the `definition` "books".
  */
 export interface Book {
-  id: string;
-  tenant?: (string | null) | Tenant;
+  id: number;
+  tenant?: (number | null) | Tenant;
   name: string;
   author: string;
   description?: {
@@ -248,9 +248,9 @@ export interface Book {
    * Price in USD
    */
   price: number;
-  category?: (string | null) | Category;
-  tags?: (string | Tag)[] | null;
-  image?: (string | null) | Media;
+  category?: (number | null) | Category;
+  tags?: (number | Tag)[] | null;
+  image?: (number | null) | Media;
   refundPolicy?: ('30-day' | '14-day' | '7-day' | '3-day' | '1-day' | 'no-refunds') | null;
   /**
    * Protected content only visible to customers after purchase. Add book documentation, downloadable files, getting started guides, and bonus materials. Supports Markdown formatting
@@ -286,9 +286,9 @@ export interface Book {
  * via the `definition` "tags".
  */
 export interface Tag {
-  id: string;
+  id: number;
   name: string;
-  books?: (string | Book)[] | null;
+  books?: (number | Book)[] | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -297,10 +297,10 @@ export interface Tag {
  * via the `definition` "orders".
  */
 export interface Order {
-  id: string;
+  id: number;
   name: string;
-  user: string | User;
-  book: string | Book;
+  user: number | User;
+  book: number | Book;
   /**
    * Stripe checkout session associated with the book
    */
@@ -317,11 +317,11 @@ export interface Order {
  * via the `definition` "reviews".
  */
 export interface Review {
-  id: string;
+  id: number;
   description: string;
   rating: number;
-  book: string | Book;
-  user: string | User;
+  book: number | Book;
+  user: number | User;
   updatedAt: string;
   createdAt: string;
 }
@@ -330,44 +330,44 @@ export interface Review {
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
-  id: string;
+  id: number;
   document?:
     | ({
         relationTo: 'users';
-        value: string | User;
+        value: number | User;
       } | null)
     | ({
         relationTo: 'media';
-        value: string | Media;
+        value: number | Media;
       } | null)
     | ({
         relationTo: 'categories';
-        value: string | Category;
+        value: number | Category;
       } | null)
     | ({
         relationTo: 'books';
-        value: string | Book;
+        value: number | Book;
       } | null)
     | ({
         relationTo: 'tags';
-        value: string | Tag;
+        value: number | Tag;
       } | null)
     | ({
         relationTo: 'tenants';
-        value: string | Tenant;
+        value: number | Tenant;
       } | null)
     | ({
         relationTo: 'orders';
-        value: string | Order;
+        value: number | Order;
       } | null)
     | ({
         relationTo: 'reviews';
-        value: string | Review;
+        value: number | Review;
       } | null);
   globalSlug?: string | null;
   user: {
     relationTo: 'users';
-    value: string | User;
+    value: number | User;
   };
   updatedAt: string;
   createdAt: string;
@@ -377,10 +377,10 @@ export interface PayloadLockedDocument {
  * via the `definition` "payload-preferences".
  */
 export interface PayloadPreference {
-  id: string;
+  id: number;
   user: {
     relationTo: 'users';
-    value: string | User;
+    value: number | User;
   };
   key?: string | null;
   value?:
@@ -400,7 +400,7 @@ export interface PayloadPreference {
  * via the `definition` "payload-migrations".
  */
 export interface PayloadMigration {
-  id: string;
+  id: number;
   name?: string | null;
   batch?: number | null;
   updatedAt: string;

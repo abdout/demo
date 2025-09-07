@@ -57,7 +57,7 @@ export const BookList = ({ category, tenantSlug, narrowView }: Props) => {
           .map((book) => (
             <BookCard
               key={book.id}
-              id={book.id}
+              id={String(book.id)}
               name={book.name}
               imageUrl={book.image?.url}
               tenantSlug={book.tenant?.slug}

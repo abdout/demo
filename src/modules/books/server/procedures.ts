@@ -129,6 +129,8 @@ export const booksRouter = createTRPCRouter({
       })
     )
     .query(async ({ ctx, input }) => {
+      console.log("📚 [books.getMany] Starting query with input:", JSON.stringify(input, null, 2));
+      
       const where: Where = {
         isArchived: {
           not_equals: true,
@@ -223,6 +225,9 @@ export const booksRouter = createTRPCRouter({
         sort = "+createdAt";
       }
 
+      console.log("📚 [books.getMany] Query conditions:", JSON.stringify(where, null, 2));
+      console.log("📚 [books.getMany] Sort:", sort, "Page:", input.cursor, "Limit:", input.limit);
+      
       const data = await ctx.db.find({
         collection: "books",
         depth: 2, // Populate "category", "image", "tenant"
@@ -234,6 +239,9 @@ export const booksRouter = createTRPCRouter({
           content: false,
         },
       });
+      
+      console.log("📚 [books.getMany] Found", data.totalDocs, "total books");
+      console.log("📚 [books.getMany] Returned", data.docs.length, "books for this page");
 
       const dataWithSummarizedReviews = await Promise.all(
         data.docs.map(async (doc) => {

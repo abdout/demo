@@ -93,7 +93,7 @@ export const reviewsRouter = createTRPCRouter({
         collection: "reviews",
         data: {
           user: ctx.session.user.id,
-          book: input.bookId,
+          book: Number(input.bookId),
           rating: input.rating,
           description: input.description,
         },

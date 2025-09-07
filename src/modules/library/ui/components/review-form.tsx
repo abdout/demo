@@ -79,7 +79,7 @@ export const ReviewForm = ({ bookId, initialData }: Props) => {
   const onSubmit = (values: z.infer<typeof formSchema>) => {
     if (initialData) {
       updateBookReview.mutate({
-        reviewId: initialData.id,
+        reviewId: String(initialData.id),
         rating: values.rating,
         description: values.description,
       });

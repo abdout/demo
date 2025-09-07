@@ -12,9 +12,12 @@ interface Props {
 }
 
 const Page = async ({ searchParams }: Props) => {
+  console.log("📖 [Home Page] Loading book filters from search params...");
   const filters = await loadBookFilters(searchParams);
+  console.log("📖 [Home Page] Filters:", JSON.stringify(filters, null, 2));
 
   const queryClient = getQueryClient();
+  console.log("📖 [Home Page] Prefetching books with filters...");
   void queryClient.prefetchInfiniteQuery(
     trpc.books.getMany.infiniteQueryOptions({
       ...filters,

@@ -107,7 +107,7 @@ export const CheckoutView = ({ tenantSlug }: CheckoutViewProps) => {
                 tenantUrl={generateTenantURL(book.tenant.slug)}
                 tenantName={book.tenant.name}
                 price={book.price}
-                onRemove={() => removeBook(book.id)}
+                onRemove={() => removeBook(String(book.id))}
               />
             ))}
           </div>

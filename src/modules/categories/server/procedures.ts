@@ -3,6 +3,8 @@ import { Category } from "@/payload-types";
 
 export const categoriesRouter = createTRPCRouter({
   getMany: baseProcedure.query(async ({ ctx }) => {
+    console.log("🏷️ [categories.getMany] Fetching categories...");
+    
     const data = await ctx.db.find({
       collection: "categories",
       depth: 1, // Populate subcategories, subcategories[0] will be a type of "Category"
@@ -13,6 +15,8 @@ export const categoriesRouter = createTRPCRouter({
         },
       },
     });
+    
+    console.log("🏷️ [categories.getMany] Found", data.docs.length, "categories");
 
     const formattedData = data.docs.map((doc) => ({
       ...doc,

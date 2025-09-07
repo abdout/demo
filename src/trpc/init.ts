@@ -25,7 +25,9 @@ const t = initTRPC.create({
 export const createTRPCRouter = t.router;
 export const createCallerFactory = t.createCallerFactory;
 export const baseProcedure = t.procedure.use(async ({ next }) => {
+  console.log("🔌 [tRPC] Initializing Payload connection...");
   const payload = await getPayload({ config });
+  console.log("✅ [tRPC] Payload connected successfully");
 
   return next({ ctx: { db: payload } });
 });

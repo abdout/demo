@@ -13,7 +13,9 @@ interface Props {
 }
 
 const Layout = async ({ children }: Props) => {
+  console.log("🏠 [Home Layout] Initializing layout...");
   const queryClient = getQueryClient();
+  console.log("🏠 [Home Layout] Prefetching categories...");
   void queryClient.prefetchQuery(trpc.categories.getMany.queryOptions());
 
   return (

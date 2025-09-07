@@ -1,0 +1,24 @@
+{
+    "permissions": {
+      "allow": [
+        "Bash(rm:*)",
+        "Bash(pnpm dev:*)",
+        "Bash(pnpm install:*)",
+        "Bash(pnpm build:*)",
+        "Bash(pnpm start:*)",
+        "Bash(pnpm lint:*)",
+        "Bash(pnpm generate:types:*)",
+        "Bash(pnpm db:migrate:*)",
+        "Bash(pnpm db:migrate:prod:*)",
+        "Bash(pnpm db:generate:*)",
+        "Bash(pnpm db:push:*)",
+        "Bash(pnpm db:seed:*)",
+        "Bash(pnpm db:reset:*)",
+        "Bash(pnpm db:studio:*)",
+        "Bash(pnpm db:reset:*)",
+        "Bash(pnpm:*)"
+      ],
+      "deny": [],
+      "ask": []
+    }
+  }

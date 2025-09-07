@@ -2,9 +2,23 @@
   "permissions": {
     "allow": [
       "Bash(rm:*)",
-      "Bash(npm install:*)",
+      "Bash(pnpm dev:*)",
       "Bash(pnpm install:*)",
-      "Bash(pnpm:*)"
+      "Bash(pnpm build:*)",
+      "Bash(pnpm start:*)",
+      "Bash(pnpm lint:*)",
+      "Bash(pnpm generate:types:*)",
+      "Bash(pnpm db:migrate:*)",
+      "Bash(pnpm db:migrate:prod:*)",
+      "Bash(pnpm db:generate:*)",
+      "Bash(pnpm db:push:*)",
+      "Bash(pnpm db:seed:*)",
+      "Bash(pnpm db:reset:*)",
+      "Bash(pnpm db:studio:*)",
+      "Bash(pnpm db:reset:*)",
+      "Bash(pnpm:*)",
+      "Bash(curl:*)",
+      "mcp__ide__getDiagnostics"
     ],
     "deny": [],
     "ask": []

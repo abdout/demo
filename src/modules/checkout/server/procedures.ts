@@ -21,7 +21,7 @@ export const checkoutRouter = createTRPCRouter({
       depth: 0, // user.tenants[0].tenant is going to be a string (tenant ID)
     });
 
-    const tenantId = user.tenants?.[0]?.tenant as string; // This is an id because of depth: 0
+    const tenantId = String(user.tenants?.[0]?.tenant); // Convert to string
     const tenant = await ctx.db.findByID({
       collection: "tenants",
       id: tenantId,
@@ -123,10 +123,10 @@ export const checkoutRouter = createTRPCRouter({
               name: book.name,
               metadata: {
                 stripeAccountId: tenant.stripeAccountId,
-                id: book.id,
+                id: String(book.id),
                 name: book.name,
                 price: book.price,
-              } as BookMetadata,
+              } as unknown as BookMetadata,
             },
           },
         }));
@@ -153,8 +153,8 @@ export const checkoutRouter = createTRPCRouter({
             enabled: true,
           },
           metadata: {
-            userId: ctx.session.user.id,
-          } as CheckoutMetadata,
+            userId: String(ctx.session.user.id),
+          } as unknown as CheckoutMetadata,
           payment_intent_data: {
             application_fee_amount: platformFeeAmount,
           },

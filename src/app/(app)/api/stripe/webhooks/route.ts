@@ -90,7 +90,7 @@ export async function POST(req: Request) {
                 stripeCheckoutSessionId: data.id,
                 stripeAccountId: event.account,
                 user: user.id,
-                book: product.metadata.id,
+                book: Number(product.metadata.id),
                 name: product.metadata.name,
               },
             });

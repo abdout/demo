@@ -1,0 +1,206 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Tenants (Stores)
+model Tenant {
+  id                     String    @id @default(cuid())
+  name                   String
+  slug                   String    @unique
+  stripeAccountId        String?
+  stripeDetailsSubmitted Boolean   @default(false)
+  imageId                String?
+  image                  Media?    @relation("TenantImage", fields: [imageId], references: [id])
+  createdAt              DateTime  @default(now())
+  updatedAt              DateTime  @updatedAt
+
+  // Relations
+  users     UserTenant[]
+  books     Book[]
+  orders    Order[]
+  reviews   Review[]
+  media     Media[]     @relation("TenantMedia")
+
+  @@index([slug])
+}
+
+// Users
+model User {
+  id           String       @id @default(cuid())
+  email        String       @unique
+  username     String       @unique
+  password     String
+  roles        String[]     @default(["user"])
+  salt         String?
+  resetToken   String?
+  resetTokenExpiry DateTime?
+  loginAttempts Int         @default(0)
+  lockUntil    DateTime?
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+
+  // Relations
+  tenants UserTenant[]
+  orders  Order[]
+  reviews Review[]
+
+  @@index([email])
+  @@index([username])
+}
+
+// Junction table for User-Tenant many-to-many relationship
+model UserTenant {
+  id       String @id @default(cuid())
+  userId   String
+  tenantId String
+  user     User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  tenant   Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, tenantId])
+  @@index([userId])
+  @@index([tenantId])
+}
+
+// Categories
+model Category {
+  id       String  @id @default(cuid())
+  name     String
+  slug     String  @unique
+  color    String?
+  parentId String?
+  parent   Category? @relation("CategoryHierarchy", fields: [parentId], references: [id])
+  children Category[] @relation("CategoryHierarchy")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  books    Book[]
+
+  @@index([slug])
+  @@index([parentId])
+}
+
+// Tags
+model Tag {
+  id        String   @id @default(cuid())
+  name      String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  books BookTag[]
+}
+
+// Books (Digital Products)
+model Book {
+  id           String   @id @default(cuid())
+  name         String
+  author       String
+  description  Json?    // Rich text content
+  price        Float
+  refundPolicy String   @default("30-day")
+  content      Json?    // Rich text content
+  isPrivate    Boolean  @default(false)
+  isArchived   Boolean  @default(false)
+  tenantId     String
+  tenant       Tenant   @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  categoryId   String?
+  category     Category? @relation(fields: [categoryId], references: [id])
+  imageId      String?
+  image        Media?   @relation(fields: [imageId], references: [id])
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Relations
+  tags    BookTag[]
+  orders  Order[]
+  reviews Review[]
+
+  @@index([tenantId])
+  @@index([categoryId])
+  @@index([name])
+}
+
+// Junction table for Book-Tag many-to-many relationship
+model BookTag {
+  id     String @id @default(cuid())
+  bookId String
+  tagId  String
+  book   Book   @relation(fields: [bookId], references: [id], onDelete: Cascade)
+  tag    Tag    @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@unique([bookId, tagId])
+  @@index([bookId])
+  @@index([tagId])
+}
+
+// Orders
+model Order {
+  id                      String   @id @default(cuid())
+  name                    String
+  stripeCheckoutSessionId String   @unique
+  stripeAccountId         String?
+  userId                  String
+  user                    User     @relation(fields: [userId], references: [id])
+  bookId                  String
+  book                    Book     @relation(fields: [bookId], references: [id])
+  tenantId                String
+  tenant                  Tenant   @relation(fields: [tenantId], references: [id])
+  createdAt               DateTime @default(now())
+  updatedAt               DateTime @updatedAt
+
+  @@index([userId])
+  @@index([bookId])
+  @@index([tenantId])
+  @@index([stripeCheckoutSessionId])
+}
+
+// Reviews
+model Review {
+  id          String   @id @default(cuid())
+  description String   @db.Text
+  rating      Int      // 1-5 stars
+  bookId      String
+  book        Book     @relation(fields: [bookId], references: [id], onDelete: Cascade)
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  tenantId    String
+  tenant      Tenant   @relation(fields: [tenantId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([bookId, userId])
+  @@index([bookId])
+  @@index([userId])
+  @@index([tenantId])
+}
+
+// Media (File uploads)
+model Media {
+  id         String   @id @default(cuid())
+  filename   String
+  mimeType   String?
+  filesize   Int?
+  width      Int?
+  height     Int?
+  url        String
+  alt        String?
+  tenantId   String?
+  tenant     Tenant?  @relation("TenantMedia", fields: [tenantId], references: [id])
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  // Relations
+  books          Book[]
+  tenantImages   Tenant[] @relation("TenantImage")
+
+  @@index([tenantId])
+}

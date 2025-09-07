@@ -1,0 +1,197 @@
+<svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect x="0" y="0" width="1200" height="800" fill="#F4F4F0"/>
+  
+  <!-- Neo-brutalist geometric background elements -->
+  <rect x="0" y="0" width="300" height="200" fill="#FF6B9D" stroke="#000" stroke-width="8"/>
+  <rect x="300" y="0" width="300" height="200" fill="#FFD23F" stroke="#000" stroke-width="8"/>
+  <rect x="600" y="0" width="300" height="200" fill="#06D6A0" stroke="#000" stroke-width="8"/>
+  <rect x="900" y="0" width="300" height="200" fill="#118AB2" stroke="#000" stroke-width="8"/>
+  
+  <rect x="0" y="200" width="400" height="150" fill="#F72585" stroke="#000" stroke-width="8"/>
+  <rect x="400" y="200" width="400" height="150" fill="#4CC9F0" stroke="#000" stroke-width="8"/>
+  <rect x="800" y="200" width="400" height="150" fill="#7209B7" stroke="#000" stroke-width="8"/>
+  
+  <rect x="0" y="350" width="300" height="200" fill="#F77F00" stroke="#000" stroke-width="8"/>
+  <rect x="300" y="350" width="600" height="200" fill="#FCBF49" stroke="#000" stroke-width="8"/>
+  <rect x="900" y="350" width="300" height="200" fill="#003566" stroke="#000" stroke-width="8"/>
+  
+  <rect x="0" y="550" width="600" height="250" fill="#0077B6" stroke="#000" stroke-width="8"/>
+  <rect x="600" y="550" width="600" height="250" fill="#90E0EF" stroke="#000" stroke-width="8"/>
+  
+  <!-- Neo-brutalist books with heavy shadows and bold colors -->
+  <!-- Stack 1 - Left side -->
+  <g transform="translate(50, 120)">
+    <!-- Book shadow -->
+    <rect x="8" y="8" width="180" height="25" fill="#000"/>
+    <!-- Book -->
+    <rect x="0" y="0" width="180" height="25" fill="#FF4757" stroke="#000" stroke-width="4"/>
+    <rect x="170" y="0" width="10" height="25" fill="#C44569" stroke="#000" stroke-width="2"/>
+    <text x="90" y="17" text-anchor="middle" font-family="Arial Black" font-size="10" font-weight="900" fill="#000">INTERPRETATION</text>
+  </g>
+  
+  <g transform="translate(40, 145)">
+    <rect x="8" y="8" width="190" height="30" fill="#000"/>
+    <rect x="0" y="0" width="190" height="30" fill="#5352ED" stroke="#000" stroke-width="4"/>
+    <rect x="180" y="0" width="10" height="30" fill="#3742FA" stroke="#000" stroke-width="2"/>
+    <text x="95" y="20" text-anchor="middle" font-family="Arial Black" font-size="10" font-weight="900" fill="#FFF">SIGMUND FREUD</text>
+  </g>
+  
+  <g transform="translate(60, 175)">
+    <rect x="8" y="8" width="170" height="28" fill="#000"/>
+    <rect x="0" y="0" width="170" height="28" fill="#2ED573" stroke="#000" stroke-width="4"/>
+    <rect x="160" y="0" width="10" height="28" fill="#20BF6B" stroke="#000" stroke-width="2"/>
+    <text x="85" y="19" text-anchor="middle" font-family="Arial Black" font-size="9" font-weight="900" fill="#000">POETRY BOOK</text>
+  </g>
+  
+  <!-- Stack 2 - Center -->
+  <g transform="translate(300, 80) rotate(2)">
+    <rect x="8" y="8" width="200" height="35" fill="#000"/>
+    <rect x="0" y="0" width="200" height="35" fill="#FFA502" stroke="#000" stroke-width="4"/>
+    <rect x="190" y="0" width="10" height="35" fill="#FF6348" stroke="#000" stroke-width="2"/>
+    <text x="100" y="23" text-anchor="middle" font-family="Arial Black" font-size="11" font-weight="900" fill="#000">CLASSIC LITERATURE</text>
+  </g>
+  
+  <g transform="translate(310, 115) rotate(-1)">
+    <rect x="8" y="8" width="180" height="30" fill="#000"/>
+    <rect x="0" y="0" width="180" height="30" fill="#A55EEA" stroke="#000" stroke-width="4"/>
+    <rect x="170" y="0" width="10" height="30" fill="#8854D0" stroke="#000" stroke-width="2"/>
+    <text x="90" y="21" text-anchor="middle" font-family="Arial Black" font-size="10" font-weight="900" fill="#FFF">JANE AUSTEN</text>
+  </g>
+  
+  <g transform="translate(290, 145) rotate(1)">
+    <rect x="8" y="8" width="220" height="25" fill="#000"/>
+    <rect x="0" y="0" width="220" height="25" fill="#FF7F50" stroke="#000" stroke-width="4"/>
+    <rect x="210" y="0" width="10" height="25" fill="#FF6B35" stroke="#000" stroke-width="2"/>
+    <text x="110" y="17" text-anchor="middle" font-family="Arial Black" font-size="9" font-weight="900" fill="#000">NORTHANGER ABBEY</text>
+  </g>
+  
+  <!-- Stack 3 - Right center -->
+  <g transform="translate(550, 100) rotate(-2)">
+    <rect x="8" y="8" width="190" height="32" fill="#000"/>
+    <rect x="0" y="0" width="190" height="32" fill="#FF3838" stroke="#000" stroke-width="4"/>
+    <rect x="180" y="0" width="10" height="32" fill="#C23616" stroke="#000" stroke-width="2"/>
+    <text x="95" y="22" text-anchor="middle" font-family="Arial Black" font-size="10" font-weight="900" fill="#FFF">PHILOSOPHY</text>
+  </g>
+  
+  <g transform="translate(560, 132) rotate(1)">
+    <rect x="8" y="8" width="170" height="28" fill="#000"/>
+    <rect x="0" y="0" width="170" height="28" fill="#26D0CE" stroke="#000" stroke-width="4"/>
+    <rect x="160" y="0" width="10" height="28" fill="#00A3A3" stroke="#000" stroke-width="2"/>
+    <text x="85" y="19" text-anchor="middle" font-family="Arial Black" font-size="9" font-weight="900" fill="#000">HAMLET</text>
+  </g>
+  
+  <!-- Stack 4 - Far right -->
+  <g transform="translate(800, 90)">
+    <rect x="8" y="8" width="200" height="30" fill="#000"/>
+    <rect x="0" y="0" width="200" height="30" fill="#00D2D3" stroke="#000" stroke-width="4"/>
+    <rect x="190" y="0" width="10" height="30" fill="#00A8A8" stroke="#000" stroke-width="2"/>
+    <text x="100" y="21" text-anchor="middle" font-family="Arial Black" font-size="10" font-weight="900" fill="#000">PORTRAIT OF A LADY</text>
+  </g>
+  
+  <g transform="translate(790, 120) rotate(-1)">
+    <rect x="8" y="8" width="220" height="35" fill="#000"/>
+    <rect x="0" y="0" width="220" height="35" fill="#FF9FF3" stroke="#000" stroke-width="4"/>
+    <rect x="210" y="0" width="10" height="35" fill="#F368E0" stroke="#000" stroke-width="2"/>
+    <text x="110" y="23" text-anchor="middle" font-family="Arial Black" font-size="11" font-weight="900" fill="#000">WORLD LITERATURE</text>
+  </g>
+  
+  <!-- Lower stacks -->
+  <g transform="translate(100, 400) rotate(3)">
+    <rect x="8" y="8" width="180" height="40" fill="#000"/>
+    <rect x="0" y="0" width="180" height="40" fill="#FF6B9D" stroke="#000" stroke-width="4"/>
+    <rect x="170" y="0" width="10" height="40" fill="#E91E63" stroke="#000" stroke-width="2"/>
+    <text x="90" y="26" text-anchor="middle" font-family="Arial Black" font-size="12" font-weight="900" fill="#000">POETRY</text>
+  </g>
+  
+  <g transform="translate(90, 440) rotate(-2)">
+    <rect x="8" y="8" width="200" height="30" fill="#000"/>
+    <rect x="0" y="0" width="200" height="30" fill="#4834D4" stroke="#000" stroke-width="4"/>
+    <rect x="190" y="0" width="10" height="30" fill="#3742FA" stroke="#000" stroke-width="2"/>
+    <text x="100" y="21" text-anchor="middle" font-family="Arial Black" font-size="10" font-weight="900" fill="#FFF">DICTIONARY</text>
+  </g>
+  
+  <g transform="translate(110, 470) rotate(1)">
+    <rect x="8" y="8" width="160" height="35" fill="#000"/>
+    <rect x="0" y="0" width="160" height="35" fill="#FF9800" stroke="#000" stroke-width="4"/>
+    <rect x="150" y="0" width="10" height="35" fill="#F57C00" stroke="#000" stroke-width="2"/>
+    <text x="80" y="23" text-anchor="middle" font-family="Arial Black" font-size="10" font-weight="900" fill="#000">ESSAYS</text>
+  </g>
+  
+  <!-- Center large stacks -->
+  <g transform="translate(350, 380) rotate(-1)">
+    <rect x="8" y="8" width="240" height="45" fill="#000"/>
+    <rect x="0" y="0" width="240" height="45" fill="#2E86AB" stroke="#000" stroke-width="4"/>
+    <rect x="230" y="0" width="10" height="45" fill="#1B5E7F" stroke="#000" stroke-width="2"/>
+    <text x="120" y="28" text-anchor="middle" font-family="Arial Black" font-size="13" font-weight="900" fill="#FFF">ENCYCLOPEDIA</text>
+  </g>
+  
+  <g transform="translate(360, 425) rotate(2)">
+    <rect x="8" y="8" width="220" height="35" fill="#000"/>
+    <rect x="0" y="0" width="220" height="35" fill="#F8B500" stroke="#000" stroke-width="4"/>
+    <rect x="210" y="0" width="10" height="35" fill="#E6A000" stroke="#000" stroke-width="2"/>
+    <text x="110" y="23" text-anchor="middle" font-family="Arial Black" font-size="11" font-weight="900" fill="#000">REFERENCE</text>
+  </g>
+  
+  <!-- Right side stacks -->
+  <g transform="translate(650, 420) rotate(-3)">
+    <rect x="8" y="8" width="190" height="32" fill="#000"/>
+    <rect x="0" y="0" width="190" height="32" fill="#A4B0BE" stroke="#000" stroke-width="4"/>
+    <rect x="180" y="0" width="10" height="32" fill="#8395A7" stroke="#000" stroke-width="2"/>
+    <text x="95" y="22" text-anchor="middle" font-family="Arial Black" font-size="10" font-weight="900" fill="#000">SCIENCE</text>
+  </g>
+  
+  <g transform="translate(640, 452) rotate(1)">
+    <rect x="8" y="8" width="210" height="38" fill="#000"/>
+    <rect x="0" y="0" width="210" height="38" fill="#00A8FF" stroke="#000" stroke-width="4"/>
+    <rect x="200" y="0" width="10" height="38" fill="#0097E6" stroke="#000" stroke-width="2"/>
+    <text x="105" y="25" text-anchor="middle" font-family="Arial Black" font-size="11" font-weight="900" fill="#000">MATHEMATICS</text>
+  </g>
+  
+  <!-- Far right stacks -->
+  <g transform="translate(900, 380) rotate(2)">
+    <rect x="8" y="8" width="180" height="30" fill="#000"/>
+    <rect x="0" y="0" width="180" height="30" fill="#C0392B" stroke="#000" stroke-width="4"/>
+    <rect x="170" y="0" width="10" height="30" fill="#A93226" stroke="#000" stroke-width="2"/>
+    <text x="90" y="21" text-anchor="middle" font-family="Arial Black" font-size="10" font-weight="900" fill="#FFF">HISTORY</text>
+  </g>
+  
+  <g transform="translate(910, 410) rotate(-1)">
+    <rect x="8" y="8" width="170" height="35" fill="#000"/>
+    <rect x="0" y="0" width="170" height="35" fill="#27AE60" stroke="#000" stroke-width="4"/>
+    <rect x="160" y="0" width="10" height="35" fill="#229954" stroke="#000" stroke-width="2"/>
+    <text x="85" y="23" text-anchor="middle" font-family="Arial Black" font-size="10" font-weight="900" fill="#000">BIOLOGY</text>
+  </g>
+  
+  <!-- Bottom row large books -->
+  <g transform="translate(200, 600) rotate(1)">
+    <rect x="8" y="8" width="280" height="50" fill="#000"/>
+    <rect x="0" y="0" width="280" height="50" fill="#E55039" stroke="#000" stroke-width="4"/>
+    <rect x="270" y="0" width="10" height="50" fill="#C44569" stroke="#000" stroke-width="2"/>
+    <text x="140" y="31" text-anchor="middle" font-family="Arial Black" font-size="14" font-weight="900" fill="#FFF">COMPLETE WORKS</text>
+  </g>
+  
+  <g transform="translate(500, 620) rotate(-2)">
+    <rect x="8" y="8" width="250" height="45" fill="#000"/>
+    <rect x="0" y="0" width="250" height="45" fill="#3C40C6" stroke="#000" stroke-width="4"/>
+    <rect x="240" y="0" width="10" height="45" fill="#2F3542" stroke="#000" stroke-width="2"/>
+    <text x="125" y="28" text-anchor="middle" font-family="Arial Black" font-size="13" font-weight="900" fill="#FFF">ANTHOLOGY</text>
+  </g>
+  
+  <!-- Central LEXI branding -->
+  <g transform="translate(600, 300)">
+    <rect x="-120" y="-40" width="240" height="80" fill="#000" stroke="#000" stroke-width="0"/>
+    <rect x="-128" y="-48" width="240" height="80" fill="#FFBE0B" stroke="#000" stroke-width="8"/>
+    <text x="0" y="10" text-anchor="middle" font-family="Arial Black" font-size="36" font-weight="900" fill="#000">LEXI</text>
+  </g>
+  
+  <!-- Decorative neo-brutalist elements -->
+  <circle cx="150" cy="300" r="30" fill="#FF006E" stroke="#000" stroke-width="6"/>
+  <circle cx="144" cy="294" r="30" fill="#000"/>
+  
+  <rect x="1000" y="200" width="50" height="50" fill="#06FFA5" stroke="#000" stroke-width="6" transform="rotate(45 1025 225)"/>
+  <rect x="994" y="194" width="50" height="50" fill="#000" transform="rotate(45 1019 219)"/>
+  
+  <polygon points="50,650 100,600 150,650 100,700" fill="#8338EC" stroke="#000" stroke-width="6"/>
+  <polygon points="44,644 94,594 144,644 94,694" fill="#000"/>
+</svg>
